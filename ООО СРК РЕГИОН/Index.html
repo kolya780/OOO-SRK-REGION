@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ООО «СРК Регион» | Строительство и ремонт в Якутске</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a2332;      /* Тёмно-синий (строгий, корпоративный) */
+            --accent-color: #f59e0b;       /* Строительный жёлто-оранжевый */
+            --accent-dark: #d97706;
+            --secondary-color: #374151;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* === Шапка === */
+        header {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .top-bar {
+            background-color: #0f1724;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar a {
+            color: #cbd5e1;
+            transition: var(--transition);
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-color);
+        }
+
+        .top-bar i {
+            color: var(--accent-color);
+            margin-right: 6px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* === Hero === */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.92) 0%, rgba(26, 35, 50, 0.75) 100%), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--white), transparent);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 6px 18px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* === О компании === */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+        }
+
+        .about-features {
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+            border-radius: 8px;
+            background: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 150px;
+            height: 150px;
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .experience-badge h4 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        .experience-badge p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--white);
+        }
+
+        /* === Статистика === */
+        .stats {
+            background-color: var(--primary-color);
+            padding: 60px 0;
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--accent-color);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        /* === Услуги === */
+        .services {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* === Преимущества (Якутская специфика) === */
+        .advantages {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d3a4f 100%);
+            color: var(--white);
+        }
+
+        .advantages .section-title {
+            color: var(--white);
+        }
+
+        .advantages .section-subtitle {
+            color: #cbd5e1;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-card {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .advantage-card:hover {
+            background-color: rgba(255,255,255,0.05);
+            border-color: var(--accent-color);
+        }
+
+        .advantage-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .advantage-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .advantage-card p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        /* === Руководство === */
+        .team {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 3rem;
+            border: 4px solid var(--accent-color);
+        }
+
+        .team-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .team-card .position {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* === Контакты и Футер === */
+        footer {
+            background-color: #0f1724;
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            margin-bottom: 12px;
+            display: block;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-col .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col .contact-item i {
+            color: var(--accent-color);
+            margin-top: 4px;
+            min-width: 18px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        /* === Адаптивность === */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 350px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .top-bar-content {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item h3 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div>
+                        <a href="tel:+74112000000"><i class="fa-solid fa-phone"></i> +7 (4112) 00-00-00</a>
+                        &nbsp;&nbsp;
+                        <a href="mailto:info@srk-region14.ru"><i class="fa-solid fa-envelope"></i> info@srk-region14.ru</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i> г. Якутск, пер. Габышева А.Г., д. 30
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+                    <div class="logo-text">
+                        СРК РЕГИОН
+                        <span>СТРОИТЕЛЬНАЯ КОМПАНИЯ</span>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#team">Руководство</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <a href="#contacts" class="btn">Заказать смету</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fa-solid fa-snowflake"></i> Работаем в условиях вечной мерзлоты</span>
+                <h1>Строительство и ремонт <span>в Якутске</span> с 2012 года</h1>
+                <p>ООО «СРК Регион» — надёжный подрядчик Республики Саха (Якутия). Выполняем полный цикл строительно-ремонтных работ с учётом сурового климата и особенностей вечной мерзлоты.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">Наши услуги</a>
+                    <a href="#contacts" class="btn btn-outline">Связаться с нами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Строим надёжно в самых сложных условиях</h3>
+                    <p>ООО «СРК Регион» основано <strong>7 ноября 2012 года</strong> в городе Якутске. За более чем 13 лет работы мы зарекомендовали себя как ответственный подрядчик, специализирующийся на строительстве и ремонте объектов в условиях Крайнего Севера.</p>
+                    <p>Компания была создана учредителями Охлопковым Леонидом Николаевичем и Охлопковым Василием Николаевичем с целью предоставления качественных строительных услуг для жителей и организаций Республики Саха (Якутия).</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <h4>Опыт работы в Якутии</h4>
+                                <p>Знаем все особенности строительства на вечной мерзлоте</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <h4>Полный цикл работ</h4>
+                                <p>От подготовки площадки до сдачи объекта «под ключ»</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <h4>Соблюдение сроков</h4>
+                                <p>Работаем строго по графику, несмотря на климат</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="experience-badge">
+                        <h4>13+</h4>
+                        <p>лет на рынке<br>Якутии</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статистика -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>13+</h3>
+                    <p>Лет на рынке</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Реализованных объектов</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Специалистов в штате</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Соблюдение сроков</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">Выполняем весь спектр строительно-ремонтных работ для жилых, коммерческих и промышленных объектов</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3>Капитальное строительство</h3>
+                    <p>Возведение жилых домов, коммерческих и промышленных зданий с учётом особенностей вечной мерзлоты и сейсмики Якутии.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                    </div>
+                    <h3>Ремонтные работы</h3>
+                    <p>Капитальный и текущий ремонт зданий и помещений любой сложности: от косметического ремонта до полной реконструкции.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-truck-pickup"></i>
+                    </div>
+                    <h3>Подготовка площадок</h3>
+                    <p>Подготовка строительных площадок, земляные работы, устройство фундаментов на вечномерзлых грунтах.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <h3>Работы в условиях Севера</h3>
+                    <p>Специализированные строительные работы при экстремально низких температурах с применением зимних технологий.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+                    <h3>Проектирование и сметы</h3>
+                    <p>Разработка проектной документации, составление смет, техническое сопровождение строительных проектов.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3>Инженерные системы</h3>
+                    <p>Монтаж и ремонт систем отопления, водоснабжения, вентиляции и электроснабжения с утеплением для якутских морозов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-subtitle">Мы понимаем специфику строительства в Якутии и гарантируем качество на каждом этапе</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <i class="fa-solid fa-temperature-low"></i>
+                    <h4>Опыт в условиях −50°C</h4>
+                    <p>Знаем, как строить и ремонтировать при экстремальных якутских морозах</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fa-solid fa-mountain"></i>
+                    <h4>Работа на мерзлоте</h4>
+                    <p>Специальные технологии устройства фундаментов на вечномерзлых грунтах</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fa-solid fa-file-contract"></i>
+                    <h4>Прозрачные договоры</h4>
+                    <p>Чёткие сметы, фиксированные сроки, никаких скрытых платежей</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h4>Своя техника и бригада</h4>
+                    <p>Собственные строительные бригады и техника — не зависим от подрядчиков</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Руководство -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Руководство компании</h2>
+            <p class="section-subtitle">Компания основана опытными специалистами, знающими строительную отрасль Якутии изнутри</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3>Охлопков Леонид Николаевич</h3>
+                    <div class="position">Генеральный директор</div>
+                    <p>Соучредитель компании с 2012 года. Осуществляет общее руководство деятельностью ООО «СРК Регион», отвечает за стратегическое развитие и ключевые проекты.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3>Охлопков Василий Николаевич</h3>
+                    <div class="position">Учредитель компании</div>
+                    <p>Соучредитель компании с момента основания. Участвует в развитии бизнеса и реализации крупных строительных проектов в Республике Саха (Якутия).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер и Контакты -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ООО «СРК Регион»</h4>
+                    <p>Строительно-ремонтная компания в Якутске. Работаем с 2012 года на территории Республики Саха (Якутия). Выполняем полный цикл строительных и ремонтных работ.</p>
+                    <p style="margin-top: 15px;"><strong>ИНН:</strong> 1435260292<br>
+                    <strong>ОГРН:</strong> 1121435015921</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <a href="#about">О компании</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#advantages">Преимущества</a>
+                    <a href="#team">Руководство</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <a href="#services">Капитальное строительство</a>
+                    <a href="#services">Ремонтные работы</a>
+                    <a href="#services">Подготовка площадок</a>
+                    <a href="#services">Инженерные системы</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>677007, Республика Саха (Якутия),<br>г. Якутск, пер. Габышева А.Г., д. 30</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+7 (4112) 00-00-00</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@srk-region14.ru</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Пн–Пт: 09:00 – 18:00<br>Сб–Вс: выходной</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2012–2026 ООО «СРК Регион». Все права защищены. | ИНН 1435260292 | ОГРН 1121435015921</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
